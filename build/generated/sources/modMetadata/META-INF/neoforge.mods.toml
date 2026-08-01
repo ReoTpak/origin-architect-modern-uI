@@ -1,0 +1,30 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+
+[[mods]]
+modId="originsmodernui"
+version="2.3.0"
+displayName="Origins Modern UI"
+description='''A cleaner, modern selection interface for NeoOrigins.'''
+
+[[dependencies.originsmodernui]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.241,)"
+ordering="NONE"
+side="CLIENT"
+
+[[dependencies.originsmodernui]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1,1.22)"
+ordering="NONE"
+side="CLIENT"
+
+[[dependencies.originsmodernui]]
+modId="neoorigins"
+type="required"
+versionRange="[2.2.21,2.3)"
+ordering="AFTER"
+side="CLIENT"
