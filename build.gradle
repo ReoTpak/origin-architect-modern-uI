@@ -8,6 +8,10 @@ group = mod_group_id
 base { archivesName = mod_id }
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
+repositories {
+    maven { url = 'https://maven.shadowsoffire.dev/releases' }
+}
+
 neoForge {
     version = project.neo_version
     runs {
@@ -23,6 +27,8 @@ configurations {
 
 dependencies {
     compileOnly files('libs/neoorigins-2.2.21+1.21.1.jar')
+    // Optional compile-time integration. Apothic Attributes is not required at runtime.
+    compileOnly 'dev.shadowsoffire:ApothicAttributes:1.21.1-2.9.1'
     localRuntime files('libs/neoorigins-2.2.21+1.21.1.jar')
 }
 

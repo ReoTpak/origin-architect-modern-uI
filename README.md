@@ -1,25 +1,20 @@
-# Origins Modern UI 2.1.1
+# Origin Architect 3.0.0
 
-Graphical selection UI for Minecraft 1.21.1, NeoForge 21.1.241+, and NeoOrigins 2.2.21.
+Minecraft 1.21.1 / NeoForge 21.1.241 / NeoOrigins 2.2.21.
 
-## Highlights
+## Stat progression
 
-- Rating, impact, difficulty, favorites, filters and extensive sorting.
-- Tags for Melee, Ranged, Magic, Water, Exploration, Economy, Tank and Mobility.
-- Search across tags, names, descriptions, powers and addon namespaces.
-- Selection history and Back navigation between Origin/Class/Background layers.
-- Eased transitions, selected-card growth and smooth scrolling.
-- Automatic support for NeoOrigins addon layers and datapack origins.
+Stats can be invested up to 60 points and use vanilla Minecraft XP. Bonuses increase every two invested points.
 
-## Build
+- Offense: up to +8 attack damage and +30% attack speed; capstone: 10% life steal.
+- Defense: up to +6 armor and +1.5 toughness; capstone: Bulwark knockback resistance.
+- Utility: up to +15% movement speed and +30% XP gain; capstone: +10% swim speed.
+- Survival: up to +12% maximum health; capstone: Last Stand resistance below 30% health.
 
-Run `BUILD-21.1.241.bat` or `gradlew.bat clean build` in IntelliJ's terminal.
-The output is created in `build/libs/`.
+Controls in Stats Screen: click = 1, Ctrl-click = 5, Shift-click = 10, for both plus and minus.
 
+## Visual identity
 
-## 2.3.0
-Adds eased slide-and-fade transitions when moving forward or backward between selection layers. Controls are locked during motion to prevent accidental double clicks.
+Version 3.0.0 includes original 16x16 pixel-art icons for the four Origin Architect attributes and their capstones. These assets are used by the HUD, Character Profile, Stats Screen, and mod metadata.
 
-
-## 2.3.0 cinematic transitions
-Layer changes now use directional depth slide, fade, subtle zoom/overshoot, vertical parallax, accent wipe, centre bloom, and short cinematic bars. Back plays the animation in reverse.
+Apothic Attributes continues to display unknown modifier-source markers because its Attributes GUI does not expose a verified public source-icon registration API in this project. The new assets provide the groundwork for a future optional compatibility module without making Apothic Attributes a required dependency.

@@ -1,24 +1,15 @@
-# Changelog
+# 3.0.0
 
-## 2.3.0
-- Reworked Origin/Class/Background transitions with directional depth motion.
-- Added smooth cubic exit and overshoot settling on entry.
-- Added subtle scale, vertical parallax, accent wipe, centre bloom and cinematic bars.
-- Back transitions animate in the opposite direction.
-- Controls stay locked during transitions to prevent accidental double input.
+- Added optional Apothic Attributes modifier-source integration.
+- Origin Architect attribute modifiers now use Offense, Defense, Utility, or Survival icons instead of the unknown-source question mark.
+- Apothic Attributes remains optional and is only loaded on the client when installed.
 
-## 2.2.0
-- Added slide and fade transitions between Origin, Class, and Background screens.
-- Added cubic easing and input locking during transitions.
-- Back transitions animate in the opposite direction.
+# 3.0.0
 
-# 2.1.1 — Motion, Tags & Navigation
-
-- Smaller entry typography to prevent clipping.
-- Entry tags: Melee, Ranged, Magic, Water, Exploration, Economy, Tank and Mobility.
-- Search now matches names, descriptions, powers, namespaces and inferred tags.
-- Added Difficulty High/Low sort modes.
-- Added a Back button for returning to the previous NeoOrigins layer.
-- Added eased slide transitions, selected-card growth and smooth list/detail scrolling.
-- Reworked control spacing so search, sort and filter do not overlap.
-- Added caching for tags/search metadata to avoid per-frame recomputation.
+- Added an official Origin Architect pixel-art logo.
+- Added dedicated vanilla-style icons for Offense, Defense, Utility, and Survival.
+- Added dedicated capstone icons for Life Steal, Bulwark, Master Swimmer, and Last Stand.
+- Replaced the vanilla Nether Star upgrade HUD marker with the Origin Architect logo.
+- Stats Screen and Character Profile now use the new attribute icons.
+- Maximum-stat indicators now show their matching capstone icon.
+- Added the Origin Architect logo to the NeoForge Mods screen metadata.
