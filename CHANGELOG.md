@@ -1,10 +1,19 @@
-# 3.0.0
+# 5.2.2
+
+## Fixed
+- Each stat now has an independent vanilla XP cost curve.
+- Upgrading Offense no longer increases the next cost of Defense, Utility, or Survival.
+- Ctrl/Shift bulk-upgrade cost is calculated only from the selected stat.
+- Stats Screen buttons and tooltips now display the selected stat's real next cost.
+- The HUD upgrade indicator uses the cheapest currently available stat upgrade.
+
+# 5.2.1
 
 - Added optional Apothic Attributes modifier-source integration.
 - Origin Architect attribute modifiers now use Offense, Defense, Utility, or Survival icons instead of the unknown-source question mark.
 - Apothic Attributes remains optional and is only loaded on the client when installed.
 
-# 3.0.0
+# 5.2.0
 
 - Added an official Origin Architect pixel-art logo.
 - Added dedicated vanilla-style icons for Offense, Defense, Utility, and Survival.

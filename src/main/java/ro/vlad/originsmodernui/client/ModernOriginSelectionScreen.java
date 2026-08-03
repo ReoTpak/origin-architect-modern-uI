@@ -1093,16 +1093,17 @@ public final class ModernOriginSelectionScreen extends Screen {
     private void updateStatAllocationButtons() {
         if (!profileOnly || statButtons.isEmpty()) return;
         ArchitectProgression.Data data = ClientArchitectState.data;
-        int cost = ArchitectProgression.upgradeCost(data);
         int vanillaXp = minecraft != null && minecraft.player != null ? minecraft.player.totalExperience : 0;
         ArchitectProgression.Stat[] stats = ArchitectProgression.Stat.values();
         for (int i = 0; i < stats.length; i++) {
             Button minus = statButtons.get(i * 2);
             Button plus = statButtons.get(i * 2 + 1);
-            int points = data.points(stats[i]);
+            ArchitectProgression.Stat stat = stats[i];
+            int points = data.points(stat);
+            int cost = ArchitectProgression.upgradeCost(data, stat);
             minus.active = points > 0;
             plus.active = points < ArchitectProgression.MAX_ALLOCATION_PER_STAT && vanillaXp >= cost;
-            plus.setMessage(Component.literal("+" + cost));
+            plus.setMessage(Component.literal(points >= ArchitectProgression.MAX_ALLOCATION_PER_STAT ? "MAX" : "+" + cost));
         }
     }
 
@@ -1113,7 +1114,8 @@ public final class ModernOriginSelectionScreen extends Screen {
             case 2 -> data.utility();
             default -> data.survival();
         };
-        int cost = ArchitectProgression.upgradeCost(data);
+        ArchitectProgression.Stat stat = ArchitectProgression.Stat.values()[Mth.clamp(index, 0, 3)];
+        int cost = ArchitectProgression.upgradeCost(data, stat);
         return "Base " + base + " + Invested " + points
                 + "\nNext: " + nextRewardText(index, points)
                 + "\nCost: " + cost + " XP";
@@ -1154,7 +1156,7 @@ public final class ModernOriginSelectionScreen extends Screen {
         int score = buildScore();
         int scoreColor = score >= 82 ? 0xFF9E6FE6 : score >= 68 ? 0xFF63D77A : score >= 52 ? 0xFFE2B44F : 0xFFD85C5C;
         int vanillaXp = mc.player == null ? 0 : mc.player.totalExperience;
-        int nextCost = ArchitectProgression.upgradeCost(progression);
+        int nextCost = ArchitectProgression.cheapestUpgradeCost(progression);
         int upgrades = progression.offense() + progression.defense() + progression.utility() + progression.survival();
 
         // Left column: player, score and progression. All heights are derived from available space.
@@ -1501,7 +1503,7 @@ public final class ModernOriginSelectionScreen extends Screen {
         g.drawString(font, Component.literal(allocatedText).withStyle(ChatFormatting.BOLD), lx + lw - font.width(allocatedText), levelTop + 7,
                 themeAccentStrong(), false);
         int vanillaXp = mc.player == null ? progression.xp() : mc.player.totalExperience;
-        int nextUpgradeCost = ArchitectProgression.upgradeCost(progression);
+        int nextUpgradeCost = ArchitectProgression.cheapestUpgradeCost(progression);
         float affordProgress = nextUpgradeCost <= 0 ? 1.0F : Mth.clamp(vanillaXp / (float)nextUpgradeCost, 0.0F, 1.0F);
         drawProgressBar(g, lx, levelTop + 21, lw, 5, affordProgress, themeAccent());
         String xpText = "XP " + vanillaXp + " • Next upgrade " + nextUpgradeCost + " XP";
